@@ -1,7 +1,9 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
+        xmlns:models="clr-namespace:SteamWorkshopExplorer.Models"
         x:Class="SteamWorkshopExplorer.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
         Title="Shapes Editor"
         Width="1800" Height="1200">
 
@@ -10,17 +12,22 @@
     </Window.DataContext>
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="10" Spacing="10">
-            <Button Content="Delete" Click="OnClearClicked"/> 
-            <Button Content="Add Ellipse" Click="OnEllipseMode"/>
-            <Button Content="Add C Bezier" Click="OnBezierMode"/>
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5" >
+            <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
+            <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="2"/>
+            <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
             <Button Content="Save" Click="OnSaveClicked"/>
             <Button Content="json" Click="OnLoadClicked"/>
         </StackPanel>
         
-        <Canvas x:Name="DrawingCanvas" Background="White"
-                PointerPressed="DrawingCanvas_PointerPressed"
-                PointerMoved="DrawingCanvas_PointerMoved"
-                PointerReleased="DrawingCanvas_PointerReleased"/>
+        <ItemsControl Items="{Binding Shapes}">
+        <ItemsControl.ItemsPanel> 
+        <ItemsPanelTemplate>
+        <Canvas>
+        </ItemsPanelTemplate>
+        <ItemsControl.ItemsPanel>
+            
+            
+        </ItemsControl>
     </DockPanel>
 </Window>
