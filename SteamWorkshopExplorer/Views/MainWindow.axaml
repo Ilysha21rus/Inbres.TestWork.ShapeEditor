@@ -23,11 +23,22 @@
         <ItemsControl Items="{Binding Shapes}">
         <ItemsControl.ItemsPanel> 
         <ItemsPanelTemplate>
-        <Canvas>
+        <Canvas/>
         </ItemsPanelTemplate>
-        <ItemsControl.ItemsPanel>
-            
-            
+        </ItemsControl.ItemsPanel>
+            <ItemsControl.Resources>
+                <DataTemplate DataType="models:EllipseModel">
+                    <Ellipse Width="{Binding Width}"
+                             Height="{Binding Height}"
+                             Canvas.Left="{Binding X}"
+                             Canvas.Top="{Binding Y}"
+                             Fill="Brown" Stroke="DarkSlateGray" StrokeThickness="3"/>
+                    </DataTemplate>
+                <DataTemplate DataType="models:BezierModel">
+                    <Polyline Points="{Binding ControlPoints}"
+                              Fill="Yellow" Stroke="IndianRed" StrokeThickness="3"/>
+            </DataTemplate>
+                </ItemsControl.Resources>
         </ItemsControl>
     </DockPanel>
 </Window>
