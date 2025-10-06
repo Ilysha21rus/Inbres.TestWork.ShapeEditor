@@ -1,0 +1,23 @@
+﻿Читаешь первую странчику по FSD
+https://feature-sliced.github.io/documentation/ru/docs/get-started/overview
+
+Выносишь фигуры в UserControl или в TemplatedControl
+
+Для каждой фигуры делаешь отдельный ViewModel
+
+Смотришь гайд авалонии по View Locator
+
+https://docs.avaloniaui.net/docs/concepts/view-locator
+
+Делаешь реализацию, хотя бы через Switch Case как тут 
+
+https://github.com/Andreev-Da/WorkshopExplorer/blob/main/Source/WorkshopExplorer.UI/Application/PageViewLocator.cs
+
+https://github.com/Andreev-Da/WorkshopExplorer/blob/3ab2438d2a38e4008090bf94d64fc97185c1a7c0/Source/WorkshopExplorer.UI/App.axaml#L11
+*Тут оно регается  (не обязательно в App, можно сразу перед использованием в ItemsControl, тут такая же тема как c CSS, DataTemplate наследуются каскадным принципом, т.е. поиск будет идти сначала в текущем контроле а потом в родительских и если найдется DataTemplpate, он будет выбран в качестве отображения объекта)
+
+
+https://github.com/Andreev-Da/WorkshopExplorer/blob/3ab2438d2a38e4008090bf94d64fc97185c1a7c0/Source/WorkshopExplorer.UI/Application/MainView.axaml#L7
+*Тут оно используется 
+
+** по идее в твоей ситуации можно просто в ItemTemplate закинуть <ShapesViewLocator/>
