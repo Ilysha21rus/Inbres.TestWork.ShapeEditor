@@ -8,7 +8,10 @@ namespace SteamWorkshopExplorer
 {
     public partial class App : Application
     {
-        public override void Initialize() => AvaloniaXamlLoader.Load(this);
+        public override void Initialize()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
 
         public override void OnFrameworkInitializationCompleted()
         {
@@ -16,7 +19,7 @@ namespace SteamWorkshopExplorer
             {
                 desktop.MainWindow = new MainWindow
                 {
-                    DataContext = new MainViewModel()
+                    DataContext = new MainWindowViewModel()
                 };
             }
             base.OnFrameworkInitializationCompleted();

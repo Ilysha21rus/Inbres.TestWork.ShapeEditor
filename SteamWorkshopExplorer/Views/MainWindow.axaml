@@ -16,8 +16,7 @@
             <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
             <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="2"/>
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
-            <Button Content="Save" Click="OnSaveClicked"/>
-            <Button Content="json" Click="OnLoadClicked"/>
+            <Button Content="Save" Command="{Binding SaveCommand}" Margin="5"/>
         </StackPanel>
         
         <ItemsControl Items="{Binding Shapes}">

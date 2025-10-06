@@ -1,6 +1,7 @@
 ﻿using Avalonia;
 using System;
 
+
 namespace SteamWorkshopExplorer;
 
 sealed class Program

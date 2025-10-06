@@ -13,6 +13,7 @@ namespace SteamWorkshopExplorer.ViewModels
         public ICommand AddBezierCommand { get; }
         public ICommand AddEllipseCommand { get; }
         public ICommand ClearCommand { get; }
+        public ICommand SaveCommand { get; }
 
         public MainWindowViewModel()
         {
