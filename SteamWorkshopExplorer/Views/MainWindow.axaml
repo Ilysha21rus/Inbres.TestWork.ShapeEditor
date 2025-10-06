@@ -6,7 +6,7 @@
         Width="1800" Height="1200">
 
     <Window.DataContext>
-        <vm:MainViewModel/>
+        <vm:MainWindowViewModel/>
     </Window.DataContext>
 
     <DockPanel>

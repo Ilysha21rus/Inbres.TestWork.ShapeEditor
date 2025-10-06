@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
 
-namespace SteamWorkshopExplorer.ViewModels;
+namespace SteamWorkshopExplorer.ViewModels
 {
     public class MainWindowViewModel
     {
@@ -41,5 +41,14 @@ namespace SteamWorkshopExplorer.ViewModels;
             foreach (var point in points) bez.ControlPoints.Add(point);
             Shapes.Add(bez);
         }
+    }
+
+    public class RelayCommand : ICommand
+    {
+        private readonly System.Action<object> _execute;
+        public event System.EventHandler? CanExecuteChanged;
+        public RelayCommand(System.Action<object> execute) => _execute = execute;
+        public bool CanExecute(object? parameter) => true;
+        public void Execute(object? parameter) => _execute(parameter);
     }
 }
