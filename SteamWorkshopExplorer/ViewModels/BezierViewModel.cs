@@ -1,6 +1,14 @@
-namespace SteamWorkshopExplorer.ViewModels;
+using SteamWorkshopExplorer.Models;
 
-public class BezierViewModel
+namespace SteamWorkshopExplorer.ViewModels
 {
-    
+    public class BezierViewModel
+    {
+        public BezierModel Model { get; set; }
+
+        public BezierViewModel()
+        {
+            Model = new BezierModel();
+        }
+    }
 }
