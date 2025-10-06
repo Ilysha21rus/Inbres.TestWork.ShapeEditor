@@ -19,7 +19,7 @@
             <Button Content="Save" Command="{Binding SaveCommand}" Margin="5"/>
         </StackPanel>
         
-        <ItemsControl Items="{Binding Shapes}">
+        <ItemsControl ItemsSource="{Binding Shapes}">
         <ItemsControl.ItemsPanel> 
         <ItemsPanelTemplate>
         <Canvas/>
