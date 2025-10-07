@@ -7,6 +7,6 @@
              x:Class="SteamWorkshopExplorer.Views.BezierView"
              x:DataType="vm:BezierViewModel">
     <Canvas>
-    <Polyline Points="{Binding ControlPoints}" Stroke="IndianRed" StrokeThickness="3"/>
+    <Polyline Points="{Binding Model.ControlPoints}" Stroke="IndianRed" StrokeThickness="3"/>
     </Canvas>
 </UserControl>
