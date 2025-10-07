@@ -1,15 +1,9 @@
 ﻿using Avalonia;
-using System.Collections.Generic;
-namespace SteamWorkshopExplorer.Models
-{
-    public class BezierModel : ShapeModel
-    {
-        private Avalonia.Collections.AvaloniaList<Point> _controlPoints = new();
+using System.Collections.ObjectModel;
 
-        public Avalonia.Collections.AvaloniaList<Point> ControlPoints
-        {
-            get => _controlPoints;
-            set { _controlPoints = value; OnPropertyChanged(nameof(ControlPoints)); }
-        }
-    }
+namespace SteamWorkshopExplorer.Models;
+
+public class BezierModel
+{
+    public ObservableCollection<Point> ControlPoints { get; } = new();
 }

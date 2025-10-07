@@ -1,13 +1,12 @@
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Markup.Xaml;
 
-namespace SteamWorkshopExplorer.Views;
-
-public partial class BezierView : UserControl
+namespace SteamWorkshopExplorer.Views
 {
-    public BezierView()
+    public partial class BezierView : UserControl
     {
-        InitializeComponent();
+        public BezierView()
+        {
+            InitializeComponent();
+        }
     }
 }

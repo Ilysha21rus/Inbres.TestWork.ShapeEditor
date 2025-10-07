@@ -1,14 +1,10 @@
-﻿    using Avalonia;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-    namespace SteamWorkshopExplorer.Models
-    {
-        public class EllipseModel : ShapeModel
-        {
-            private double _x, _y, _width, _height;
-
-            public double X { get => _x; set { _x = value; OnPropertyChanged(nameof(X)); } }
-            public double Y { get => _y; set { _y = value; OnPropertyChanged(nameof(Y)); } }
-            public double Width { get => _width; set { _width = value; OnPropertyChanged(nameof(Width)); } }
-            public double Height { get => _height; set { _height = value; OnPropertyChanged(nameof(Height)); } }
-        }
-    }
+namespace SteamWorkshopExplorer.ViewModels;
+public class EllipseModel
+{
+    public double X { get; set; }
+    public double Y { get; set; }
+    public double Width { get; set; } = 120;
+    public double Height { get; set; } = 100;
+}

@@ -6,7 +6,9 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SteamWorkshopExplorer.Views.EllipseView"
              x:DataType="vm:EllipseViewModel">
-   <Ellipse Width="{Binding Width}" Height="{Binding Height}"
-             Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"
+   <Ellipse Width="{Binding Width}" 
+            Height="{Binding Height}"
+             Canvas.Left="{Binding X}" 
+            Canvas.Top="{Binding Y}"
              Fill="Brown" Stroke="DarkSlateGray" StrokeThickness="3"/>
 </UserControl>

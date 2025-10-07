@@ -7,7 +7,7 @@ namespace SteamWorkshopExplorer.ViewModels
     {
         [ObservableProperty] private double width = 120;
         [ObservableProperty] private double height = 100;
-        [ObservableProperty] private double x = 80;
-        [ObservableProperty] private double y = 80;
+        [ObservableProperty] private double x;
+        [ObservableProperty] private double y;
     }
 }

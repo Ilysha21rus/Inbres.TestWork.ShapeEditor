@@ -1,15 +1,11 @@
-using SteamWorkshopExplorer.Models;
+using Avalonia;
 using CommunityToolkit.Mvvm.ComponentModel;
+using SteamWorkshopExplorer.Models;
 
 namespace SteamWorkshopExplorer.ViewModels;
 
 public partial class BezierViewModel : ObservableObject
-
 {
-        public BezierModel Model { get; }
-
-        public BezierViewModel(BezierModel model)
-        {
-            Model = model;
-        }
+    [ObservableProperty]
+    private BezierModel bezier = new();
 }

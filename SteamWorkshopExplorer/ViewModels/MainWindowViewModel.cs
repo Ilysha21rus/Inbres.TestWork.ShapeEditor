@@ -31,7 +31,7 @@ namespace SteamWorkshopExplorer.ViewModels
             bez.ControlPoints.Add(new Point(150, 100));
             bez.ControlPoints.Add(new Point(250, 100));
             bez.ControlPoints.Add(new Point(350, 200));
-            Shapes.Add(bez);
+            Shapes.Add(new BezierViewModel { Bezier = bez });
         }
 
         [RelayCommand]

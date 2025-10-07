@@ -18,40 +18,23 @@
             <Button Content="Add Ellipse" Command="{Binding AddEllipseAtCommand}" Margin="2"/>
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
         </StackPanel>
-        
-        <Canvas Background="White" PointerPressed="Canvas_PointerPressed">
-            <ItemsControl ItemsSource="{Binding Shapes}">
-                <ItemsControl.DataTemplates>
-        
+
         <ItemsControl ItemsSource="{Binding Shapes}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas Background="White"
-                            PointerPressed="Canvas_PointerPressed"/>
+                    <Canvas Background="White" PointerPressed="Canvas_PointerPressed"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
-            
+
             <ItemsControl.DataTemplates>
-                
                 <DataTemplate DataType="vm:EllipseViewModel">
-                    <Ellipse Width="{Binding Width}"
-                             Height="{Binding Height}"
-                             Canvas.Left="{Binding X}"
-                             Canvas.Top="{Binding Y}"
-                             Fill="Brown"
-                             Stroke="DarkSlateGray"
-                             StrokeThickness="3"/>
-                    
+                    <views:EllipseView/>
                 </DataTemplate>
 
-                <DataTemplate DataType="models:BezierModel">
-                    <Polyline Points="{Binding ControlPoints}"
-                              Fill="BurlyWood"
-                              Stroke="IndianRed"
-                              StrokeThickness="3"/>
+                <DataTemplate DataType="vm:BezierViewModel">
+                    <views:BezierView/>
                 </DataTemplate>
             </ItemsControl.DataTemplates>
         </ItemsControl>
-                    </Canvas>
     </DockPanel>
 </Window>

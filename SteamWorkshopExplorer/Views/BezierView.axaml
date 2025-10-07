@@ -6,7 +6,8 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SteamWorkshopExplorer.Views.BezierView"
              x:DataType="vm:BezierViewModel">
-    <Canvas>
-    <Polyline Points="{Binding Model.ControlPoints}" Stroke="IndianRed" StrokeThickness="3"/>
-    </Canvas>
+    <Polyline Points="{Binding Bezier.ControlPoints}"
+              Fill="BurlyWood"
+              Stroke="IndianRed"
+              StrokeThickness="3"/>
 </UserControl>
