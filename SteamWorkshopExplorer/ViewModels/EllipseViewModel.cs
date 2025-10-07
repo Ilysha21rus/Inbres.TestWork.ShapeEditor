@@ -1,14 +1,13 @@
 using SteamWorkshopExplorer.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
-    public class EllipseViewModel
+    public partial class EllipseViewModel : ObservableObject
     {
-        public EllipseModel Model { get; set; }
-
-        public EllipseViewModel(EllipseModel model)
-        {
-            Model = Model;
-        }
+        [ObservableProperty] private double width;
+        [ObservableProperty] private double height;
+        [ObservableProperty] private double x;
+        [ObservableProperty] private double y;
     }
 }
