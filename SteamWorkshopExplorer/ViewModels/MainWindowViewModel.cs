@@ -14,7 +14,7 @@ namespace SteamWorkshopExplorer.ViewModels
         [RelayCommand]
         private void AddEllipse()
         {
-            Shapes.Add(new EllipseModel { X = 100, Y = 100 });
+            Shapes.Add(new EllipseModel { X = 100, Y = 100 , Width = 150 , Height = 100 });
         }
 
         [RelayCommand]
