@@ -6,7 +6,7 @@
         xmlns:views="clr-namespace:SteamWorkshopExplorer.Views"
         x:DataType="vm:MainWindowViewModel"
         Title="Shapes Editor"
-        Width="1800" Height="1200">
+        Width="1200" Height="900">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -26,7 +26,7 @@
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             
-            <ItemsControl.Resources>
+            <ItemsControl.DataTemplates>
                 <DataTemplate DataType="models:EllipseModel">
                     <Ellipse Width="{Binding Width}"
                              Height="{Binding Height}"
@@ -43,7 +43,7 @@
                               Stroke="IndianRed"
                               StrokeThickness="3"/>
                 </DataTemplate>
-            </ItemsControl.Resources>
+            </ItemsControl.DataTemplates>
         </ItemsControl>
     </DockPanel>
 </Window>
