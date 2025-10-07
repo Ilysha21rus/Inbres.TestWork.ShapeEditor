@@ -1,4 +1,4 @@
-using SteamWorkshopExplorer.Models;g
+using SteamWorkshopExplorer.Models;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
