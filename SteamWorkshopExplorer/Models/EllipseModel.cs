@@ -4,7 +4,7 @@ namespace SteamWorkshopExplorer.Models
 {
     public class EllipseModel : ShapeModel
     {
-        private double _x, _y, _width = 100, _height = 60;
+        private double _x, _y, _width, _height;
 
         public double X { get => _x; set { _x = value; OnPropertyChanged(nameof(X)); } }
         public double Y { get => _y; set { _y = value; OnPropertyChanged(nameof(Y)); } }
