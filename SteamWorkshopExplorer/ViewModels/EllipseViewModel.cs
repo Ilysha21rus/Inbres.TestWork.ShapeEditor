@@ -8,7 +8,7 @@ namespace SteamWorkshopExplorer.ViewModels
 
         public EllipseViewModel()
         {
-            Model = new EllipseModel();
+            Model = Model;
         }
     }
 }

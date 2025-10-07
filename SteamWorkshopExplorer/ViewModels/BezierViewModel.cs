@@ -8,7 +8,7 @@ namespace SteamWorkshopExplorer.ViewModels
 
         public BezierViewModel()
         {
-            Model = new BezierModel();
+            Model = Model;
         }
     }
 }

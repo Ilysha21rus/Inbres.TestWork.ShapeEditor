@@ -1,10 +1,11 @@
 ﻿using Avalonia;
 using System.Collections.ObjectModel;
+using Avalonia.Collections;
 
 namespace SteamWorkshopExplorer.Models
 {
     public class BezierModel : ShapeModel
     {
-        public ObservableCollection<Point> ControlPoints { get; set; } = new();
+        public AvaloniaList<Point> ControlPoints { get; set; } = new AvaloniaList<Point>();
     }
 }
