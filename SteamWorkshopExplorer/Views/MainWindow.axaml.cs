@@ -18,7 +18,7 @@ public partial class MainWindow : Window
         if (sender is Control control && DataContext is MainWindowViewModel vm)
         {
             var point = e.GetPosition(control);
-            vm.AddEllipseCommand.Execute(point);
+            vm.AddEllipseAtCommand.Execute(point);
         }
     }
 }

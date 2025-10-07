@@ -8,14 +8,10 @@
             Title="Shapes Editor"
             Width="1200" Height="900">
 
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
-
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
             <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
-            <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="2"/>
+            <Button Content="Add Ellipse" Command="{Binding AddEllipseAtCommand}" Margin="2"/>
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
         </StackPanel>
 
@@ -28,11 +24,12 @@
 
             <ItemsControl.DataTemplates>
                 <DataTemplate DataType="vm:EllipseViewModel">
-                    <views:EllipseView/>
+                    <views:EllipseView Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"/>
                 </DataTemplate>
 
                 <DataTemplate DataType="vm:BezierViewModel">
-                    <views:BezierView DataContext="{Binding}" />
+                    <views:BezierView
+                        Canvas.Left="0" Canvas.Top="0"/>
                 </DataTemplate>
 
             </ItemsControl.DataTemplates>

@@ -10,14 +10,14 @@ namespace SteamWorkshopExplorer.ViewModels
     public partial class MainWindowViewModel : ObservableObject
     {
         public ObservableCollection<object> Shapes { get; } = new();
-
+        
         [RelayCommand]
-        private void AddEllipse()
+        private void AddEllipseAt(Point position)
         {
             Shapes.Add(new EllipseViewModel
             {
-                X =  200,
-                Y =  200,
+                X = position.X,
+                Y = position.Y,
                 Width = 120,
                 Height = 100
             });
