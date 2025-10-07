@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia;
 using SteamWorkshopExplorer.ViewModels;
+using SteamWorkshopExplorer.Views;
 
 namespace SteamWorkshopExplorer.Views;
 
@@ -19,6 +20,14 @@ public partial class MainWindow : Window
         {
             var point = e.GetPosition(control);
             vm.AddEllipseAtCommand.Execute(point);
+            var ellipseVM = vm.Shapes[^1] as EllipseViewModel;
+            if (ellipseVM != null)
+            {
+                var ellipseView = new EllipseView { DataContext = ellipseVM };
+                Canvas.SetLeft(ellipseView, ellipseVM.X);
+                Canvas.SetTop(ellipseView, ellipseVM.Y);
+                Canvas.Children.Add(ellipseView);
+            }
         }
     }
 }
