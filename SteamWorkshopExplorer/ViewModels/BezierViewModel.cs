@@ -1,14 +1,15 @@
 using SteamWorkshopExplorer.Models;
+using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace SteamWorkshopExplorer.ViewModels
+namespace SteamWorkshopExplorer.ViewModels;
+
+public partial class BezierViewModel : ObservableObject
+
 {
-    public class BezierViewModel
-    {
         public BezierModel Model { get; }
 
         public BezierViewModel(BezierModel model)
         {
             Model = model;
         }
-    }
 }
