@@ -9,15 +9,21 @@ namespace SteamWorkshopExplorer.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject
     {
-        public ObservableCollection<ShapeModel> Shapes { get; } = new();
+        public ObservableCollection<object> Shapes { get; } = new();
 
         [RelayCommand]
-        private void AddEllipse()
+        private void AddEllipseAt(Point position)
         {
-            Shapes.Add(new EllipseModel { X = 100, Y = 100 , Width = 150 , Height = 100 });
+            Shapes.Add(new EllipseViewModel
+            {
+                X =  position.X,
+                Y =  position.Y,
+                Width = 120,
+                Height = 100
+            });
         }
 
-        [RelayCommand]
+        [RelayCommand]  
         private void AddBezier()
         {
             var bez = new BezierModel();

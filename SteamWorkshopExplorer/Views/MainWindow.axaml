@@ -1,12 +1,12 @@
 <Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
-        x:Class="SteamWorkshopExplorer.Views.MainWindow"
-        xmlns:models="clr-namespace:SteamWorkshopExplorer.Models"
-        xmlns:views="clr-namespace:SteamWorkshopExplorer.Views"
-        x:DataType="vm:MainWindowViewModel"
-        Title="Shapes Editor"
-        Width="1200" Height="900">
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
+            x:Class="SteamWorkshopExplorer.Views.MainWindow"
+            xmlns:models="clr-namespace:SteamWorkshopExplorer.Models"
+            xmlns:views="clr-namespace:SteamWorkshopExplorer.Views"
+            x:DataType="vm:MainWindowViewModel"
+            Title="Shapes Editor"
+            Width="1200" Height="900">
 
     <Window.DataContext>
         <vm:MainWindowViewModel/>
@@ -22,12 +22,14 @@
         <ItemsControl ItemsSource="{Binding Shapes}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <Canvas/>
+                    <Canvas Background="White"
+                            PointerPressed="Canvas_PointerPressed"/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
             
             <ItemsControl.DataTemplates>
-                <DataTemplate DataType="models:EllipseModel">
+                
+                <DataTemplate DataType="vm:EllipseViewModel">
                     <Ellipse Width="{Binding Width}"
                              Height="{Binding Height}"
                              Canvas.Left="{Binding X}"
@@ -35,6 +37,7 @@
                              Fill="Brown"
                              Stroke="DarkSlateGray"
                              StrokeThickness="3"/>
+                    
                 </DataTemplate>
 
                 <DataTemplate DataType="models:BezierModel">
