@@ -1,28 +1,16 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SteamWorkshopExplorer.Views.EllipseView"
              x:DataType="vm:EllipseViewModel">
     
-    <Canvas>
-    
-    <Ellipse Width="{Binding Width}" 
-             Height="{Binding Height}"
-             Canvas.Left="{Binding X}" 
-             Canvas.Top="{Binding Y}"
-             Fill="Brown" Stroke="DarkSlateGray" StrokeThickness="3"
-             PointerMoved="OnPointerMoved"/>
-   
-   <Rectangle Width="10"
-              Height="10"
-              Fill="DarkSlateGray"
-              Canvas.Left="{Binding X, ConverterParameter=Width, Mode=OneWay}"
-              Canvas.Top="{Binding Y, ConverterParameter=Height, Mode=OneWay}"
-              PointerMoved="OnResizeMoved"/>
-    
-    </Canvas>
 
+    <Canvas>
+        <Ellipse Width="{Binding Width}" Height="{Binding Height}" Fill="LightBlue"
+                 Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}"
+                 Cursor="Hand"
+                 PointerPressed="Ellipse_PointerPressed"
+                 PointerMoved="Ellipse_PointerMoved"
+                 PointerReleased="Ellipse_PointerReleased"/>
+    </Canvas>
 </UserControl>

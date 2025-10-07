@@ -26,7 +26,7 @@ public partial class MainWindow : Window
                 var ellipseView = new EllipseView { DataContext = ellipseVM };
                 Canvas.SetLeft(ellipseView, ellipseVM.X);
                 Canvas.SetTop(ellipseView, ellipseVM.Y);
-                Canvas.Children.Add(ellipseView);
+                MainCanvas.Children.Add(ellipseView);
             }
         }
     }

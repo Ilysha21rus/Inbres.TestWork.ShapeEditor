@@ -15,6 +15,6 @@
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
         </StackPanel>
 
-        <Canvas Name="MainCanvas" Background="White" PointerPressed="Canvas_PointerPressed"/>
+        <Canvas x:Name="MainCanvas" Background="White" PointerPressed="Canvas_PointerPressed"/>
     </DockPanel>
 </Window>
