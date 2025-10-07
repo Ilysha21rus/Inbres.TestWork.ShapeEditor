@@ -1,9 +1,9 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
+        x:Class="SteamWorkshopExplorer.Views.MainWindow"
         xmlns:models="clr-namespace:SteamWorkshopExplorer.Models"
         xmlns:views="clr-namespace:SteamWorkshopExplorer.Views"
-        x:Class="SteamWorkshopExplorer.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="Shapes Editor"
         Width="1800" Height="1200">
@@ -13,23 +13,37 @@
     </Window.DataContext>
 
     <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5" >
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
             <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
             <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="2"/>
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
-            <Button Content="Save" Command="{Binding SaveCommand}" Margin="5"/>
         </StackPanel>
         
-        <ItemsControl Items="{Binding Shapes}">
+        <ItemsControl ItemsSource="{Binding Shapes}">
             <ItemsControl.ItemsPanel>
                 <ItemsPanelTemplate>
                     <Canvas/>
                 </ItemsPanelTemplate>
             </ItemsControl.ItemsPanel>
+            
+            <ItemsControl.Resources>
+                <DataTemplate DataType="models:EllipseModel">
+                    <Ellipse Width="{Binding Width}"
+                             Height="{Binding Height}"
+                             Canvas.Left="{Binding X}"
+                             Canvas.Top="{Binding Y}"
+                             Fill="Brown"
+                             Stroke="DarkSlateGray"
+                             StrokeThickness="3"/>
+                </DataTemplate>
 
-            <ItemsControl.ItemTemplate>
-                <views:ShapesViewLocator/>
-            </ItemsControl.ItemTemplate>
+                <DataTemplate DataType="models:BezierModel">
+                    <Polyline Points="{Binding ControlPoints}"
+                              Fill="BurlyWood"
+                              Stroke="IndianRed"
+                              StrokeThickness="3"/>
+                </DataTemplate>
+            </ItemsControl.Resources>
         </ItemsControl>
     </DockPanel>
 </Window>
