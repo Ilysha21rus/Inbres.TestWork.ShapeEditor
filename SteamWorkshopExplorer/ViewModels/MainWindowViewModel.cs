@@ -12,12 +12,12 @@ namespace SteamWorkshopExplorer.ViewModels
         public ObservableCollection<object> Shapes { get; } = new();
 
         [RelayCommand]
-        private void AddEllipseAt(Point position)
+        private void AddEllipse()
         {
             Shapes.Add(new EllipseViewModel
             {
-                X =  position.X,
-                Y =  position.Y,
+                X =  200,
+                Y =  200,
                 Width = 120,
                 Height = 100
             });

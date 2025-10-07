@@ -10,6 +10,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
+        DataContext = new MainWindowViewModel();
     }
 
     private void Canvas_PointerPressed(object sender, PointerPressedEventArgs e)
@@ -17,7 +18,7 @@ public partial class MainWindow : Window
         if (sender is Control control && DataContext is MainWindowViewModel vm)
         {
             var point = e.GetPosition(control);
-            vm.AddEllipseAtCommand.Execute(point);
+            vm.AddEllipseCommand.Execute(point);
         }
     }
 }
