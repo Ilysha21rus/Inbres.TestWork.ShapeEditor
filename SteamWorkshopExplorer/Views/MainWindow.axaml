@@ -15,9 +15,13 @@
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
             <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
-            <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="2"/>
+            <Button Content="Add Ellipse" Command="{Binding AddEllipseAtCommand}" Margin="2"/>
             <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
         </StackPanel>
+        
+        <Canvas Background="White" PointerPressed="Canvas_PointerPressed">
+            <ItemsControl ItemsSource="{Binding Shapes}">
+                <ItemsControl.DataTemplates>
         
         <ItemsControl ItemsSource="{Binding Shapes}">
             <ItemsControl.ItemsPanel>
@@ -48,5 +52,6 @@
                 </DataTemplate>
             </ItemsControl.DataTemplates>
         </ItemsControl>
+                    </Canvas>
     </DockPanel>
 </Window>
