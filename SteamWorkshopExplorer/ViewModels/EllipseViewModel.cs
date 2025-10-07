@@ -6,7 +6,7 @@ namespace SteamWorkshopExplorer.ViewModels
     {
         public EllipseModel Model { get; set; }
 
-        public EllipseViewModel()
+        public EllipseViewModel(EllipseModel model)
         {
             Model = Model;
         }
