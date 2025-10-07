@@ -32,8 +32,9 @@
                 </DataTemplate>
 
                 <DataTemplate DataType="vm:BezierViewModel">
-                    <views:BezierView/>
+                    <views:BezierView DataContext="{Binding}" />
                 </DataTemplate>
+
             </ItemsControl.DataTemplates>
         </ItemsControl>
     </DockPanel>

@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace SteamWorkshopExplorer.ViewModels;
+namespace SteamWorkshopExplorer.Models;
 public class EllipseModel
 {
     public double X { get; set; }
