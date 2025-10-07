@@ -1,55 +1,37 @@
-﻿using Avalonia;
+﻿﻿using Avalonia;
 using SteamWorkshopExplorer.Models;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using CommunityToolkit.Mvvm.Input;
+using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
-    public class MainWindowViewModel
+    public partial class MainWindowViewModel : ObservableObject
     {
-        public ObservableCollection<ShapeModel> Shapes { get; set; } = new();
+        public ObservableCollection<ShapeModel> Shapes { get; } = new();
 
-        public ICommand AddBezierCommand { get; }
-        public ICommand AddEllipseCommand { get; }
-        public ICommand ClearCommand { get; }
-        public ICommand SaveCommand { get; }
-
-        public MainWindowViewModel()
+        [RelayCommand]
+        private void AddEllipse()
         {
-            AddEllipseCommand = new RelayCommand(_ => AddEllipse(50, 50));
-            AddBezierCommand = new RelayCommand(_ =>
-            {
-                AddBezier(
-                    new Point(50, 200),
-                    new Point(150, 100),
-                    new Point(250, 100),
-                    new Point(350, 200)
-                );
-            });
-
-            ClearCommand = new RelayCommand(_ => Shapes.Clear());
+            Shapes.Add(new EllipseModel { X = 100, Y = 100 });
         }
 
-        public void AddEllipse(double x, double y)
-        {
-            Shapes.Add(new EllipseModel { X = x, Y = y });
-        }
-
-        public void AddBezier(params Point[] points)
+        [RelayCommand]
+        private void AddBezier()
         {
             var bez = new BezierModel();
-            foreach (var point in points) bez.ControlPoints.Add(point);
+            bez.ControlPoints.Add(new Point(50, 200));
+            bez.ControlPoints.Add(new Point(150, 100));
+            bez.ControlPoints.Add(new Point(250, 100));
+            bez.ControlPoints.Add(new Point(350, 200));
             Shapes.Add(bez);
         }
-    }
 
-    public class RelayCommand : ICommand
-    {
-        private readonly System.Action<object> _execute;
-        public event System.EventHandler? CanExecuteChanged;
-        public RelayCommand(System.Action<object> execute) => _execute = execute;
-        public bool CanExecute(object? parameter) => true;
-        public void Execute(object? parameter) => _execute(parameter);
+        [RelayCommand]
+        private void Clear()
+        {
+            Shapes.Clear();
+        }
     }
 }
