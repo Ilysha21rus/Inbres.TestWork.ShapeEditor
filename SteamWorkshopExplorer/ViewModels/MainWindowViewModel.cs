@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using SteamWorkshopExplorer.ViewModels;
 using System.Reactive;
+using Avalonia.Threading;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
@@ -22,8 +23,9 @@ namespace SteamWorkshopExplorer.ViewModels
         }
 
         private void AddEllipse()
+        
         {
-            Ellipses.Add(new EllipseViewModel { X = 50, Y = 50 });
+            Ellipses.Add(new EllipseViewModel { X = 50, Y = 50, Width = 50, Height = 50 });
         }
 
         private void AddBezier()

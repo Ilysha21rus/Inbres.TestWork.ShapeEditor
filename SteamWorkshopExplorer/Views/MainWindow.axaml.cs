@@ -20,20 +20,6 @@ namespace SteamWorkshopExplorer.Views
             AvaloniaXamlLoader.Load(this);
         }
 
-        private void AddEllipse_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
         }
-
-        private void AddBezier_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-
-
-        private void Delete_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+    
 }

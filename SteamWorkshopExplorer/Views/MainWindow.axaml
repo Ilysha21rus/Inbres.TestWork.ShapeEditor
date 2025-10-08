@@ -9,9 +9,9 @@
     </Window.DataContext>
     
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="0">
-        <Button Content="Delete" Click="Delete_Click" Margin="5"/>
-        <Button Content="Add Ellipse" Click="AddEllipse_Click" Margin="5"/>
-        <Button Content="Add C Bezier" Click="AddBezier_Click" Margin="5"/>
+        <Button Content="Delete" Command="{Binding DeleteLastCommand}" Margin="5"/>
+        <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="5"/>
+        <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="5"/>
 
     <Canvas Name="MainCanvas" Background="White">
         <ItemsControl ItemsSource="{Binding Ellipses}">
