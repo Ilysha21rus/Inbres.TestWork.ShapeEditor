@@ -1,33 +1,41 @@
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia;
+using Avalonia.Markup.Xaml;
 using SteamWorkshopExplorer.ViewModels;
-using SteamWorkshopExplorer.Views;
 
-namespace SteamWorkshopExplorer.Views;
-
-public partial class MainWindow : Window
+namespace SteamWorkshopExplorer.Views
 {
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent();
-        DataContext = new MainWindowViewModel();
-    }
+        private MainWindowViewModel VM => DataContext as MainWindowViewModel;
 
-    private void Canvas_PointerPressed(object sender, PointerPressedEventArgs e)
-    {
-        if (sender is Control control && DataContext is MainWindowViewModel vm)
+        public MainWindow()
         {
-            var point = e.GetPosition(control);
-            vm.AddEllipseAtCommand.Execute(point);
-            var ellipseVM = vm.Shapes[^1] as EllipseViewModel;
-            if (ellipseVM != null)
-            {
-                var ellipseView = new EllipseView { DataContext = ellipseVM };
-                Canvas.SetLeft(ellipseView, ellipseVM.X);
-                Canvas.SetTop(ellipseView, ellipseVM.Y);
-                MainCanvas.Children.Add(ellipseView);
-            }
+            InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            AvaloniaXamlLoader.Load(this);
+        }
+
+        private void AddEllipse_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            VM.AddEllipse(50, 50); 
+        }
+
+        private void AddBezier_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            VM.AddBezier(new Point(100, 100),
+                new Point(150, 50),
+                new Point(250, 150),
+                new Point(300, 100));
+        }
+
+        private void Delete_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
+        {
+            VM.DeleteLast();
         }
     }
 }

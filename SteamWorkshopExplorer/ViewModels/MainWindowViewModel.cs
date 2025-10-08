@@ -1,43 +1,48 @@
-﻿﻿using Avalonia;
-using SteamWorkshopExplorer.Models;
+﻿using ReactiveUI;
 using System.Collections.ObjectModel;
-using System.Windows.Input;
-using CommunityToolkit.Mvvm.Input;
-using CommunityToolkit.Mvvm.ComponentModel;
+using SteamWorkshopExplorer.ViewModels;
+using System.Reactive;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject
+    public class MainWindowViewModel : ReactiveObject
     {
-        public ObservableCollection<object> Shapes { get; } = new();
+        public ObservableCollection<EllipseViewModel> Ellipses { get; } = new();
+        public ObservableCollection<BezierViewModel> Beziers { get; } = new();
         
-        [RelayCommand]
-        private void AddEllipseAt(Point position)
+        public ReactiveCommand<Unit, Unit> AddEllipseCommand { get; }
+        public ReactiveCommand<Unit, Unit> AddBezierCommand { get; }
+        public ReactiveCommand<Unit, Unit> DeleteLastCommand { get; }
+
+        public MainWindowViewModel()
         {
-            Shapes.Add(new EllipseViewModel
+            AddEllipseCommand = ReactiveCommand.Create(AddEllipse);
+            AddBezierCommand = ReactiveCommand.Create(AddBezier);
+            DeleteLastCommand = ReactiveCommand.Create(DeleteLast);
+        }
+
+        private void AddEllipse()
+        {
+            Ellipses.Add(new EllipseViewModel { X = 50, Y = 50 });
+        }
+
+        private void AddBezier()
+        {
+            Beziers.Add(new BezierViewModel
             {
-                X = position.X,
-                Y = position.Y,
-                Width = 120,
-                Height = 100
+                Start = new Avalonia.Point(10, 10),
+                Control1 = new Avalonia.Point(50, 100),
+                Control2 = new Avalonia.Point(150, 100),
+                End = new Avalonia.Point(200, 10)
             });
         }
 
-        [RelayCommand]  
-        private void AddBezier()
+        private void DeleteLast()
         {
-            var bez = new BezierModel();
-            bez.ControlPoints.Add(new Point(50, 200));
-            bez.ControlPoints.Add(new Point(150, 100));
-            bez.ControlPoints.Add(new Point(250, 100));
-            bez.ControlPoints.Add(new Point(350, 200));
-            Shapes.Add(new BezierViewModel { Bezier = bez });
-        }
-
-        [RelayCommand]
-        private void Clear()
-        {
-            Shapes.Clear();
+            if (Ellipses.Count > 0)
+                Ellipses.RemoveAt(Ellipses.Count - 1);
+            else if (Beziers.Count > 0)
+                Beziers.RemoveAt(Beziers.Count - 1);
         }
     }
 }

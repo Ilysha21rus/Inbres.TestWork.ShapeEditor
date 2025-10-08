@@ -1,13 +1,12 @@
-using SteamWorkshopExplorer.Models;
-using CommunityToolkit.Mvvm.ComponentModel;
+using Avalonia;
 
 namespace SteamWorkshopExplorer.ViewModels
 {
-    public partial class EllipseViewModel : ObservableObject
+    public class EllipseViewModel
     {
-        [ObservableProperty] private double width = 120;
-        [ObservableProperty] private double height = 100;
-        [ObservableProperty] private double x;
-        [ObservableProperty] private double y;
+        public double X { get; set; }
+        public double Y { get; set; }
+        public double Width { get; set; } = 100;
+        public double Height { get; set; } = 100;
     }
 }

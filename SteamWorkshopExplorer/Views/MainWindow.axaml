@@ -1,20 +1,35 @@
 <Window xmlns="https://github.com/avaloniaui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
-            x:Class="SteamWorkshopExplorer.Views.MainWindow"
-            xmlns:models="clr-namespace:SteamWorkshopExplorer.Models"
-            xmlns:views="clr-namespace:SteamWorkshopExplorer.Views"
-            x:DataType="vm:MainWindowViewModel"
-            Title="Shapes Editor"
-            Width="1200" Height="900">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
+        x:Class="SteamWorkshopExplorer.Views.MainWindow"
+        Width="800" Height="600">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
 
-    <DockPanel>
-        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="5">
-            <Button Content="Delete" Command="{Binding ClearCommand}" Margin="2"/>
-            <Button Content="Add Ellipse" Command="{Binding AddEllipseAtCommand}" Margin="2"/>
-            <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="2"/>
-        </StackPanel>
+    <Canvas Name="MainCanvas" Background="White">
+        <ItemsControl Items="{Binding Ellipses}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Ellipse Width="{Binding Width}" Height="{Binding Height}" Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Fill="LightBlue"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
 
-        <Canvas x:Name="MainCanvas" Background="White" PointerPressed="Canvas_PointerPressed"/>
-    </DockPanel>
+        <ItemsControl Items="{Binding Beziers}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Path Stroke="Black" StrokeThickness="2">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathFigure StartPoint="{Binding Start}">
+                                    <BezierSegment Point1="{Binding Control1}" Point2="{Binding Control2}" Point3="{Binding End}"/>
+                                </PathFigure>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Canvas>
 </Window>

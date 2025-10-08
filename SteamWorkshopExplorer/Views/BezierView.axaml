@@ -1,13 +1,19 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:SteamWorkshopExplorer.ViewModels"
-             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="SteamWorkshopExplorer.Views.BezierView"
              x:DataType="vm:BezierViewModel">
-    <Polyline Points="{Binding Bezier.ControlPoints}"
-              Fill="BurlyWood"
-              Stroke="IndianRed"
-              StrokeThickness="3"/>
+    <Canvas>
+        <Path Stroke="Black" StrokeThickness="2">
+            <Path.Data>
+                <PathGeometry>
+                    <PathFigure StartPoint="{Binding Start}">
+                        <BezierSegment Point1="{Binding Control1}"
+                                       Point2="{Binding Control2}"
+                                       Point3="{Binding End}" />
+                    </PathFigure>
+                </PathGeometry>
+            </Path.Data>
+        </Path>
+    </Canvas>
 </UserControl>
