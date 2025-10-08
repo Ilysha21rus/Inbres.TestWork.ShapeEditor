@@ -48,5 +48,21 @@ namespace SteamWorkshopExplorer.Views
 
             RootCanvas.Children.Add(path);
         }
+
+        private void BezierTo(Point viewModelControl1, Point viewModelControl2, Point viewModelEnd, bool b, bool b1)
+        {
+            throw new System.NotImplementedException();
+        }
+    }
+
+    internal class RootCanvas
+    {
+        public class Children
+        {
+            public static void Add(Path path)
+            {
+                throw new System.NotImplementedException();
+            }
+        }
     }
 }
