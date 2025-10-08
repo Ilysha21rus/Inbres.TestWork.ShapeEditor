@@ -22,20 +22,18 @@ namespace SteamWorkshopExplorer.Views
 
         private void AddEllipse_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            VM.AddEllipse(50, 50); 
+            throw new System.NotImplementedException();
         }
 
         private void AddBezier_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            VM.AddBezier(new Point(100, 100),
-                new Point(150, 50),
-                new Point(250, 150),
-                new Point(300, 100));
+            throw new System.NotImplementedException();
         }
+
 
         private void Delete_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
         {
-            VM.DeleteLast();
+            throw new System.NotImplementedException();
         }
     }
 }

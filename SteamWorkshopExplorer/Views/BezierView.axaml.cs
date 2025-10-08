@@ -41,7 +41,7 @@ namespace SteamWorkshopExplorer.Views
             {
                 ctx.BeginFigure(viewModel.Start, false);
                 
-                ctx.BezierTo(viewModel.Control1, viewModel.Control2, viewModel.End, true, false);
+                ctx.CubicBezierTo();BezierTo(viewModel.Control1, viewModel.Control2, viewModel.End, true, false);
             }
 
             path.Data = geometry;
