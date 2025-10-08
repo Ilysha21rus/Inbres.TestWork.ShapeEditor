@@ -9,7 +9,7 @@
     </Window.DataContext>
 
     <Canvas Name="MainCanvas" Background="White">
-        <ItemsControl Items="{Binding Ellipses}">
+        <ItemsControl ItemsSource="{Binding Ellipses}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Ellipse Width="{Binding Width}" Height="{Binding Height}" Canvas.Left="{Binding X}" Canvas.Top="{Binding Y}" Fill="LightBlue"/>
@@ -17,7 +17,7 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
 
-        <ItemsControl Items="{Binding Beziers}">
+        <ItemsControl ItemsSource="{Binding Beziers}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <Path Stroke="Black" StrokeThickness="2">
