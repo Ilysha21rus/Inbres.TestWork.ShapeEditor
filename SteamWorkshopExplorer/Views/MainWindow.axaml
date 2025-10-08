@@ -7,6 +7,11 @@
     <Window.DataContext>
         <vm:MainWindowViewModel/>
     </Window.DataContext>
+    
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="0">
+        <Button Content="Delete" Click="Delete_Click" Margin="5"/>
+        <Button Content="Add Ellipse" Click="AddEllipse_Click" Margin="5"/>
+        <Button Content="Add C Bezier" Click="AddBezier_Click" Margin="5"/>
 
     <Canvas Name="MainCanvas" Background="White">
         <ItemsControl ItemsSource="{Binding Ellipses}">
@@ -33,4 +38,5 @@
             </ItemsControl.ItemTemplate>
         </ItemsControl>
     </Canvas>
+        </StackPanel>
 </Window>
