@@ -8,6 +8,11 @@
         <vm:MainWindowViewModel/>
     </Window.DataContext>
     
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+    
     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="10" Grid.Row="0">
         <Button Content="Delete" Command="{Binding DeleteLastCommand}" Margin="5"/>
         <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="5"/>
@@ -39,4 +44,5 @@
         </ItemsControl>
     </Canvas>
         </StackPanel>
+        </Grid>
 </Window>
