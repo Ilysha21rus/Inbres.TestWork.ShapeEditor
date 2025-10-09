@@ -18,7 +18,7 @@
         <Button Content="Add Ellipse" Command="{Binding AddEllipseCommand}" Margin="5"/>
         <Button Content="Add C Bezier" Command="{Binding AddBezierCommand}" Margin="5"/>
 
-    <Canvas Name="MainCanvas" Background="White">
+    <Canvas Name="MainCanvas" Background="White" Grid.Row="1">
         <ItemsControl ItemsSource="{Binding Ellipses}">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>

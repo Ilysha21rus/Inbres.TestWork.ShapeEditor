@@ -12,6 +12,7 @@ namespace SteamWorkshopExplorer.Views
 
         public MainWindow()
         {
+            
             InitializeComponent();
         }
 
@@ -19,7 +20,6 @@ namespace SteamWorkshopExplorer.Views
         {
             AvaloniaXamlLoader.Load(this);
         }
-
         }
     
 }
